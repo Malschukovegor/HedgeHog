@@ -40352,6 +40352,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4662003348116236563, guid: a0715c4eda351004595be15e92b93599, type: 3}
+    - {fileID: 4703244197011400880, guid: a0715c4eda351004595be15e92b93599, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2433305406617824027, guid: a0715c4eda351004595be15e92b93599, type: 3}
       insertIndex: -1
@@ -55030,6 +55031,10 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 167
       objectReference: {fileID: 0}
+    - target: {fileID: 1980960204168351460, guid: 7e8d1d38043f82548887099a5a1954dd, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2267366324412462494, guid: 7e8d1d38043f82548887099a5a1954dd, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -56410,6 +56415,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 396939299}
+    - target: {fileID: 8348521661210366925, guid: 7e8d1d38043f82548887099a5a1954dd, type: 3}
+      propertyPath: rotationSpeed
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 8523664418879070343, guid: 7e8d1d38043f82548887099a5a1954dd, type: 3}
       propertyPath: m_Mesh
       value: 

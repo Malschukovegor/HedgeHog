@@ -11,6 +11,6 @@ public class Movement3 : MonoBehaviour
 
     void Update()
     {
-        obstacleRb.AddTorque(Vector3.up * rotationSpeed, ForceMode.Acceleration);
+        obstacleRb.AddTorque(Vector3.up * rotationSpeed * Time.deltaTime, ForceMode.Acceleration);
     }
 }

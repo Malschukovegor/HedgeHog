@@ -22,18 +22,18 @@ public class Movement2 : MonoBehaviour
         {
             topBorderTouched = true;
         }
-        else if (transform.position.y <= 2.6f)
+        else if (transform.position.y <= 3.0f)
         {
             topBorderTouched = false;
         }
 
         if (!topBorderTouched)
         {
-            obstacleRb.AddForce(Vector3.up * movementSpeed, ForceMode.Acceleration);
+            obstacleRb.AddForce(Vector3.up * movementSpeed * Time.fixedDeltaTime, ForceMode.Acceleration);
         }
         else
         {
-            obstacleRb.AddForce(Vector3.down * movementSpeed, ForceMode.Acceleration);
+            obstacleRb.AddForce(Vector3.down * movementSpeed * Time.fixedDeltaTime, ForceMode.Acceleration);
         }
     }
 }
