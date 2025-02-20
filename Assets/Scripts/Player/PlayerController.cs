@@ -25,11 +25,12 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
     private Rigidbody playerRb;
     private GameObject playerCamera;
-    private Vector3 startPosition = new Vector3(-21.0f, 20.0f, -23.0f);
+    private GameObject startPoint;
     
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        startPoint = GameObject.Find("Start_Point");
 
         playerRb = GetComponent<Rigidbody>();
         playerCamera = GameObject.Find("Camera");
@@ -203,7 +204,7 @@ public class PlayerController : MonoBehaviour
     public void ResetPosition()
     {
         audioSource.PlayOneShot(resetPositionSound);
-        transform.position = startPosition;
+        transform.position = startPoint.transform.position;
         transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         playerRb.linearVelocity *= 0;
         jumpForce = 15.0f;

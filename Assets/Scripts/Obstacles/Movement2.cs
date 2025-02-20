@@ -13,7 +13,7 @@ public class Movement2 : MonoBehaviour
     }
     void Update()
     {
-        obstacleRb.AddTorque(Vector3.right * rotationSpeed, ForceMode.Acceleration);
+        obstacleRb.AddTorque(rotationSpeed * Time.deltaTime * Vector3.right, ForceMode.Acceleration);
     }
 
     void FixedUpdate()
@@ -29,11 +29,11 @@ public class Movement2 : MonoBehaviour
 
         if (!topBorderTouched)
         {
-            obstacleRb.AddForce(Vector3.up * movementSpeed * Time.fixedDeltaTime, ForceMode.Acceleration);
+            obstacleRb.AddForce(movementSpeed * Time.fixedDeltaTime * Vector3.up, ForceMode.Acceleration);
         }
         else
         {
-            obstacleRb.AddForce(Vector3.down * movementSpeed * Time.fixedDeltaTime, ForceMode.Acceleration);
+            obstacleRb.AddForce(movementSpeed * Time.fixedDeltaTime * Vector3.down, ForceMode.Acceleration);
         }
     }
 }
