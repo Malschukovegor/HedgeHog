@@ -4,42 +4,21 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuPanel;
-    public GameObject pauseButton;
+    public GameObject buttons;
+    public GameObject joystics;
     public AudioClip pauseToggleSound;
     public AudioSource audioSource;
-    private bool isPaused = false;
     void Awake()
     {
         pauseMenuPanel.SetActive(false);
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
-    }
-    public void TogglePause()
-    {
-        isPaused = !isPaused;
-
-        if (isPaused)
-        {
-            PauseGame();
-        }
-        else
-        {
-            ResumeGame();
-        }
     }
 
     public void PauseGame()
     {
         audioSource.PlayOneShot(pauseToggleSound);
         Time.timeScale = 0.0f;
-        Cursor.lockState = CursorLockMode.None; 
-        Cursor.visible = true;
-        pauseButton.SetActive(false);
+        buttons.SetActive(false);
+        joystics.SetActive(false);
         pauseMenuPanel.SetActive(true);
     }
 
@@ -47,9 +26,8 @@ public class PauseMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(pauseToggleSound);
         Time.timeScale = 1.0f;
-        Cursor.lockState = CursorLockMode.Locked; 
-        Cursor.visible = false;
-        pauseButton.SetActive(true);
+        buttons.SetActive(true);
+        joystics.SetActive(true);
         pauseMenuPanel.SetActive(false);
     }
 

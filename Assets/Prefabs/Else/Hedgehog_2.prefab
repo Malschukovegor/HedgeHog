@@ -47200,6 +47200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db63eec162191e43ababee6f6e2d96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementJoystick: {fileID: 0}
   speed: 18
   maxSpeed: 13
   jumpForce: 15
@@ -47214,6 +47215,8 @@ MonoBehaviour:
   powerupDismiss: {fileID: 8300000, guid: 4bc21899eae7448ccaf4ebdd49cfcd9f, type: 3}
   destroyEnemies: {fileID: 8300000, guid: 57d96e0355d21364780d4009e3b7057b, type: 3}
   hitSurface: {fileID: 8300000, guid: 1f2844efbf7abf647ba3d75d510f823a, type: 3}
+  jumpSound: {fileID: 8300000, guid: a421c88e31c06c24791fbcc9cd18a8db, type: 3}
+  resetPositionSound: {fileID: 8300000, guid: ff02384bf272dc747a5ccd69d1c0d7ee, type: 3}
 --- !u!82 &2026065006716878419
 AudioSource:
   m_ObjectHideFlags: 0

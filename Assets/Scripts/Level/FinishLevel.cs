@@ -8,6 +8,8 @@ public class FinishLevel : MonoBehaviour
     public int levelIndex = 1;
     public GameObject finishMenu;
     public GameObject finishMenuLastLevel;
+    public GameObject buttons;
+    public GameObject joysticks;
     public AudioClip finishSound;
     private AudioSource audioSource;
     private GameObject timer;
@@ -16,15 +18,6 @@ public class FinishLevel : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         timer = GameObject.Find("Timer");
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            finishMenu.SetActive(false);
-            finishMenuLastLevel.SetActive(false);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,6 +39,8 @@ public class FinishLevel : MonoBehaviour
 
         if (!string.IsNullOrEmpty(nextLevelName))
         {
+            buttons.SetActive(false);
+            joysticks.SetActive(false);
             ShowFinishMenu();
             timer.SetActive(false);
         }
@@ -57,8 +52,6 @@ public class FinishLevel : MonoBehaviour
     void ShowFinishMenu()
     {
         audioSource.PlayOneShot(finishSound);
-        Cursor.lockState = CursorLockMode.None; 
-        Cursor.visible = true;
         Time.timeScale = 0.0f;
         
         if (levelIndex == 3)

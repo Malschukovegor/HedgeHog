@@ -12,8 +12,6 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         mainMenuPanel.SetActive(true);
-        Cursor.lockState = CursorLockMode.None; // Разблокировка курсора
-        Cursor.visible = true;
     }
 
     public void LoadLevel(int levelIndex)

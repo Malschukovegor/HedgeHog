@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+    public Joystick movementJoystick;
     public float speed = 18;
     public float maxSpeed = 13f;
     public float jumpForce = 15;
@@ -17,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip powerupDismiss;
     public AudioClip destroyEnemies;
     public AudioClip hitSurface;
+    public AudioClip jumpSound;
+    public AudioClip resetPositionSound;
     private AudioSource audioSource;
     private Rigidbody playerRb;
     private GameObject playerCamera;
@@ -32,25 +36,34 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        // Проверяем касания
+        if (Input.touchCount > 0)
         {
-            isOnGround = false;
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);            
-        }
+            Touch touch = Input.GetTouch(0); // Получаем первое касание
 
-        if (transform.position.y < -6 || Input.GetKeyDown(KeyCode.R))
+            // Проверяем, происходит ли касание на UI-элементе
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            {
+                return; // Игнорируем касание, если оно происходит на UI
+            }
+
+            // Обрабатываем касание для прыжка
+            if (touch.phase == TouchPhase.Began && isOnGround)
+            {
+                Jump();
+            }
+        }
+    
+        if (transform.position.y < -6)
         {
-            transform.position = startPosition;
-            transform.localScale = new Vector3 (0.7f, 0.7f, 0.7f);
-            playerRb.linearVelocity *= 0;
-            jumpForce = 15.0f;
+            ResetPosition();
         }
     }
 
     void FixedUpdate()
     {
-        float forwardForce = Input.GetAxis("Vertical") * speed;
-        float sideForce = Input.GetAxis("Horizontal") * speed;
+        float forwardForce = movementJoystick.Vertical * speed;
+        float sideForce = movementJoystick.Horizontal * speed;
 
         if (isOnGround)
         {
@@ -137,5 +150,22 @@ public class PlayerController : MonoBehaviour
         maxSpeed = 13;
         Vector3 powerupPosition = new Vector3(powerupPositionX, powerupPositionY, powerupPositionZ);
         Instantiate(powerup, powerupPosition, powerup.transform.rotation);
+    }
+    public void Jump()
+    {
+        if (isOnGround)
+        {
+            isOnGround = false;
+            audioSource.PlayOneShot(jumpSound);
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+    public void ResetPosition()
+    {
+        audioSource.PlayOneShot(resetPositionSound);
+        transform.position = startPosition;
+        transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        playerRb.linearVelocity *= 0;
+        jumpForce = 15.0f;
     }
 }
