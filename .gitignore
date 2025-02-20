@@ -1,0 +1,13 @@
+# Unity generated files
+Library/
+Temp/
+Obj/
+Logs/
+UserSettings/
+
+# Build output
+Build/
+
+# Other common ignore rules
+*.sln
+*.userprefs
