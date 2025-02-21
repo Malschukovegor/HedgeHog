@@ -40285,6 +40285,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7833274527287334501, guid: a0715c4eda351004595be15e92b93599, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 225
+      objectReference: {fileID: 0}
     - target: {fileID: 8015701742368742986, guid: a0715c4eda351004595be15e92b93599, type: 3}
       propertyPath: m_Mesh
       value: 
