@@ -17,6 +17,7 @@ public class CameraJoystickController : MonoBehaviour
 
     void LateUpdate()
     {
+        
         if (cameraJoystick != null)
         {
             // Получаем ввод от джойстика
@@ -33,12 +34,7 @@ public class CameraJoystickController : MonoBehaviour
             transform.rotation = rotation;
 
             // Позиционируем камеру относительно цели
-            if (target != null)
-            {
-                Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
-                Vector3 position = rotation * negDistance + target.position;
-                transform.position = position;
-            }
+            
         }
     }
 

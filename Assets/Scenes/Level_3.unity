@@ -36137,7 +36137,7 @@ PrefabInstance:
     - target: {fileID: 7764084195454679056, guid: 512da40c5289e884a8746bfe7c968630, type: 3}
       propertyPath: cameraJoystick
       value: 
-      objectReference: {fileID: 1420282499}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40185,6 +40185,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -11.28693
       objectReference: {fileID: 0}
+    - target: {fileID: 1688203775004823281, guid: a0715c4eda351004595be15e92b93599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 221503696}
+    - target: {fileID: 1688203775004823281, guid: a0715c4eda351004595be15e92b93599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Jump
+      objectReference: {fileID: 0}
     - target: {fileID: 2811757745424030169, guid: a0715c4eda351004595be15e92b93599, type: 3}
       propertyPath: m_Name
       value: Reset_Position_Button
@@ -40377,17 +40385,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6589104891800925165, guid: a0715c4eda351004595be15e92b93599, type: 3}
   m_PrefabInstance: {fileID: 1420282497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1420282499 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7473528999878107073, guid: a0715c4eda351004595be15e92b93599, type: 3}
-  m_PrefabInstance: {fileID: 1420282497}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1420282500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2433305406617824027, guid: a0715c4eda351004595be15e92b93599, type: 3}

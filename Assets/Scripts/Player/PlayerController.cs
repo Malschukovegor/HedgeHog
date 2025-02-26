@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,8 +36,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        HandleJump();
-    
         if (transform.position.y < -6)
         {
             ResetPosition();
@@ -51,6 +47,22 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
     }
 
+    void HandleMovement()
+    {
+        float forwardForce = movementJoystick.Vertical * speed;
+        float sideForce = movementJoystick.Horizontal * speed;
+
+        if (isOnGround)
+        {
+            playerRb.AddForce(playerCamera.transform.forward * forwardForce, ForceMode.Acceleration);
+            playerRb.AddForce(playerCamera.transform.right * sideForce, ForceMode.Acceleration);
+        }
+
+        if (playerRb.linearVelocity.magnitude > maxSpeed)
+        {
+            playerRb.linearVelocity = playerRb.linearVelocity.normalized * maxSpeed;
+        }
+    }
     void OnCollisionEnter (Collision collision)
         {
             if (collision.gameObject.CompareTag("Ground"))
@@ -125,48 +137,7 @@ public class PlayerController : MonoBehaviour
         Vector3 powerupPosition = new Vector3(powerupPositionX, powerupPositionY, powerupPositionZ);
         Instantiate(powerup, powerupPosition, powerup.transform.rotation);
     }
-    void HandleMovement()
-    {
-        float forwardForce = movementJoystick.Vertical * speed;
-        float sideForce = movementJoystick.Horizontal * speed;
-
-        if (isOnGround)
-        {
-            playerRb.AddForce(playerCamera.transform.forward * forwardForce, ForceMode.Acceleration);
-            playerRb.AddForce(playerCamera.transform.right * sideForce, ForceMode.Acceleration);
-        }
-
-        if (playerRb.linearVelocity.magnitude > maxSpeed)
-        {
-            playerRb.linearVelocity = playerRb.linearVelocity.normalized * maxSpeed;
-        }
-    }
-    void HandleJump()
-    {
-        // Проверяем касания
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0); // Получаем первое касание
-
-            // Проверяем, происходит ли касание на UI-элементе
-            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-            {
-                return; // Игнорируем касание, если оно происходит на UI
-            }
-
-            // Проверяем, попадает ли касание в область джойстика
-            if (IsTouchOverJoystick(touch.position))
-            {
-                return; // Игнорируем касание, если оно попадает в область джойстика
-            }
-
-            // Обрабатываем касание для прыжка
-            if (touch.phase == TouchPhase.Began && isOnGround)
-            {
-                Jump();
-            }
-        }
-    }
+    
     
     public void Jump()
     {
@@ -176,30 +147,6 @@ public class PlayerController : MonoBehaviour
             audioSource.PlayOneShot(jumpSound);
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-    }
-    bool IsTouchOverJoystick(Vector2 touchPosition)
-    {
-        // Преобразуем позицию касания в мировые координаты
-        PointerEventData pointer = new PointerEventData(EventSystem.current);
-        pointer.position = touchPosition;
-
-        // Проверяем, попадает ли касание в область джойстика
-        GraphicRaycaster raycaster = movementJoystick.GetComponent<GraphicRaycaster>();
-        if (raycaster != null)
-        {
-            System.Collections.Generic.List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
-            raycaster.Raycast(pointer, results);
-
-            foreach (var result in results)
-            {
-                if (result.gameObject == movementJoystick.gameObject)
-                {
-                    return true; // Касание попадает в область джойстика
-                }
-            }
-        }
-
-        return false; // Касание не попадает в область джойстика
     }
     public void ResetPosition()
     {
