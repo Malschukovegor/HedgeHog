@@ -36131,6 +36131,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7764084195454679056, guid: 512da40c5289e884a8746bfe7c968630, type: 3}
+      propertyPath: sensitivity
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764084195454679056, guid: 512da40c5289e884a8746bfe7c968630, type: 3}
       propertyPath: cursorTexture
       value: 
       objectReference: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
@@ -36138,6 +36142,10 @@ PrefabInstance:
       propertyPath: cameraJoystick
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7764084195454679056, guid: 512da40c5289e884a8746bfe7c968630, type: 3}
+      propertyPath: movementJoystick
+      value: 
+      objectReference: {fileID: 32485506}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

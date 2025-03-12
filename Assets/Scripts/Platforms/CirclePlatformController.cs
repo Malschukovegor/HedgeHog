@@ -5,13 +5,15 @@ public class CirclePlatformController : MonoBehaviour
     public bool topBorderTouched = false;
     public float topBorder = 7.0f;
     public float bottomBorder = 3.99f;
-    public float rotationSpeed = 0.5f;
-    private float verticalSpeed = 1.5f;
-    private Rigidbody circlePlatformRb;
+    private float rotationSpeed = 10.0f;
+    private float verticalSpeed = 70.0f;
+    private Rigidbody platformRb;
+
     void Awake()
     {
-        circlePlatformRb = GetComponent<Rigidbody>();
+        platformRb = GetComponent<Rigidbody>();
     }
+
     void Update()
     {
         if (transform.position.y >= topBorder)
@@ -23,19 +25,18 @@ public class CirclePlatformController : MonoBehaviour
             topBorderTouched = false;
         }
 
+        platformRb.AddTorque(rotationSpeed * Time.deltaTime * Vector3.up, ForceMode.Acceleration);
+    }
+
+    void FixedUpdate()
+    {
         if (!topBorderTouched)
         {
-            transform.Translate(Vector3.up * Time.deltaTime * verticalSpeed);
+            platformRb.AddForce(Time.fixedDeltaTime * verticalSpeed * Vector3.up, ForceMode.Acceleration);
         }
         else
         {
-            transform.Translate(Vector3.down * Time.deltaTime * verticalSpeed);
+            platformRb.AddForce(Time.fixedDeltaTime * verticalSpeed * Vector3.down, ForceMode.Acceleration);
         }
-
-        
-    }
-    void FixedUpdate()
-    {
-        circlePlatformRb.AddTorque(Vector3.up * rotationSpeed, ForceMode.Acceleration);
     }
 }
