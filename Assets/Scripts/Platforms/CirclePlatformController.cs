@@ -6,7 +6,7 @@ public class CirclePlatformController : MonoBehaviour
     public float topBorder = 7.0f;
     public float bottomBorder = 3.99f;
     private float rotationSpeed = 10.0f;
-    private float verticalSpeed = 70.0f;
+    private float verticalSpeed = 90.0f;
     private Rigidbody platformRb;
 
     void Awake()

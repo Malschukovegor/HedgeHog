@@ -5,7 +5,7 @@ public class CameraSwipeController : MonoBehaviour
 {
     private Transform target; // Объект, вокруг которого вращается камера
     public float distance = 1.5f; // Дистанция от камеры до объекта
-    public float sensitivity = 0.5f; // Чувствительность свайпов
+    public float sensitivity = 0.3f; // Чувствительность свайпов
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
     private Vector2 touchStartPos; // Начальная позиция касания

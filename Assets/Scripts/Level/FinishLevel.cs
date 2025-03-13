@@ -13,11 +13,13 @@ public class FinishLevel : MonoBehaviour
     public AudioClip finishSound;
     private AudioSource audioSource;
     private GameObject timer;
+    private GameObject coinsCounter;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         timer = GameObject.Find("Timer");
+        coinsCounter = GameObject.Find("Coins_Counter");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,6 +45,7 @@ public class FinishLevel : MonoBehaviour
             joysticks.SetActive(false);
             ShowFinishMenu();
             timer.SetActive(false);
+            coinsCounter.SetActive(false);
         }
         else
         {
