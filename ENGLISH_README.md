@@ -19,4 +19,4 @@ Reset players position - "R" button;
 Pause - Pause button.
 ---
 Your target in the game is to get to the finish line on each of three levels, but before you get to the finish line you have to collect all the coins on the level. 
-Also there is a timer on each level so you can try to end levels for minimum amount time and then watch your results in the main menu.
+Also there is a timer on each level so you can try to end levels for minimum amount of time and then watch your results in the main menu.
