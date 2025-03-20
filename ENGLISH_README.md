@@ -1,5 +1,5 @@
 This is my first own Unity project, made after ending Unity Learn's "Junior Programmer" course (in fact i started working on it while going through the course).
-There are two builds for two platforms: Windows and Android - you can try any build by chosing one of the branches in repository.
+There are two builds for two platforms: Windows and Android - you can try any build by chosing one of the branches in repository on Github.
 This project was made in Unity version 6000.0.29f1, but should work on oldest versions to.
 ---
 WINDOWS CONTROLS:
