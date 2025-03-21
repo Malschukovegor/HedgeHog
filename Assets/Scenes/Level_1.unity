@@ -15625,7 +15625,7 @@ PrefabInstance:
     - target: {fileID: 5957577253983363670, guid: a0715c4eda351004595be15e92b93599, type: 3}
       propertyPath: pauseButton
       value: 
-      objectReference: {fileID: 1833115678}
+      objectReference: {fileID: 0}
     - target: {fileID: 6252555936351320244, guid: a0715c4eda351004595be15e92b93599, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -15643,7 +15643,8 @@ PrefabInstance:
       value: Level_Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6589104891800925165, guid: a0715c4eda351004595be15e92b93599, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3770451404990426386, guid: a0715c4eda351004595be15e92b93599, type: 3}
       insertIndex: -1
@@ -15671,7 +15672,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f6bbe1441d6e22b43b19fea9c0d79f68, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f6bbe1441d6e22b43b19fea9c0d79f68, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.65
@@ -35868,11 +35869,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1833115678 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6589104891800925165, guid: a0715c4eda351004595be15e92b93599, type: 3}
-  m_PrefabInstance: {fileID: 851665531}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1844005011
 Mesh:
   m_ObjectHideFlags: 0

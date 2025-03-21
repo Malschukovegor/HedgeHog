@@ -40155,7 +40155,7 @@ PrefabInstance:
     - target: {fileID: 5957577253983363670, guid: a0715c4eda351004595be15e92b93599, type: 3}
       propertyPath: pauseButton
       value: 
-      objectReference: {fileID: 1420282498}
+      objectReference: {fileID: 0}
     - target: {fileID: 5981197106586002929, guid: a0715c4eda351004595be15e92b93599, type: 3}
       propertyPath: m_Size.x
       value: 3.1014843
@@ -40213,24 +40213,20 @@ PrefabInstance:
       value: Level_Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6589104891800925165, guid: a0715c4eda351004595be15e92b93599, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3770451404990426386, guid: a0715c4eda351004595be15e92b93599, type: 3}
-      insertIndex: 3
+      insertIndex: -1
       addedObject: {fileID: 1430089047}
     - targetCorrespondingSourceObject: {fileID: 3770451404990426386, guid: a0715c4eda351004595be15e92b93599, type: 3}
-      insertIndex: 4
+      insertIndex: -1
       addedObject: {fileID: 1956733941}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1553569204944276481, guid: a0715c4eda351004595be15e92b93599, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1231126011}
   m_SourcePrefab: {fileID: 100100000, guid: a0715c4eda351004595be15e92b93599, type: 3}
---- !u!1 &1420282498 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6589104891800925165, guid: a0715c4eda351004595be15e92b93599, type: 3}
-  m_PrefabInstance: {fileID: 1420282497}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1430089046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2034797965103481633, guid: 0a6a6a55340616e45b4e2d0a41b65c13, type: 3}
