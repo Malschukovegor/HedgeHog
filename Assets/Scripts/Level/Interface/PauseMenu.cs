@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuPanel;
-    public GameObject pauseButton;
     public AudioClip pauseToggleSound;
     public AudioSource audioSource;
     private bool isPaused = false;
@@ -39,7 +38,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0.0f;
         Cursor.lockState = CursorLockMode.None; 
         Cursor.visible = true;
-        pauseButton.SetActive(false);
         pauseMenuPanel.SetActive(true);
     }
 
@@ -49,7 +47,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
-        pauseButton.SetActive(true);
         pauseMenuPanel.SetActive(false);
     }
 
